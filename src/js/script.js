@@ -15,3 +15,17 @@ testWebP(function (support) {
         document.querySelector('body').classList.add('no-webp');
     }
 });
+
+// начало скрипт табов //
+$("ul.tabs__caption").on("click", "li:not(.active)", function () {
+    $(this)
+        .addClass("active")
+        .siblings()
+        .removeClass("active")
+        .closest("div.tabs")
+        .find("div.tabs__content")
+        .removeClass("active")
+        .eq($(this).index())
+        .addClass("active");
+});
+  // конец скрипт табов //
