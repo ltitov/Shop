@@ -32,6 +32,13 @@
     border: 1px solid $color-shark;
   }
 
+  &__cart {
+    svg {
+      width: 17px;
+      height: 18px;
+    }
+  }
+
   &__avatar {
     img {
       border-radius: 15px;

@@ -1,5 +1,5 @@
 .search {
-  margin-bottom: 70px;
+  margin-bottom: 50px;
 
   &__container {
     display: flex;
@@ -22,5 +22,12 @@
     border: none;
     outline: transparent;
     background-color: $color-shark3;
+  }
+
+  &__btn {
+    svg {
+      width: 15px;
+      height: 16px;
+    }
   }
 }
