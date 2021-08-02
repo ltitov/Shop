@@ -1,0 +1,26 @@
+.search {
+  margin-bottom: 70px;
+
+  &__container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 140px;
+    height: 18px;
+    margin-right: 35px;
+  }
+
+  &__input {
+    max-width: 160px;
+    font: 400 15px / 18px "Inter";
+    color: var(--color-nevada);
+    border: none;
+    outline: transparent;
+    background-color: var(--color-shark3);
+  }
+}

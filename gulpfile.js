@@ -6,6 +6,7 @@ let fs = require('fs');
 let path = {
     build: {
         html: projectFolder + "/",
+        php: projectFolder + "/",
         css: projectFolder + "/css/",
         js: projectFolder + "/js/",
         img: projectFolder + "/img/",
@@ -13,6 +14,7 @@ let path = {
     },
     src: {
         html: [sourceFolder + "/**/*.html", "!" + sourceFolder + "/**/_*.html"],
+        php: [sourceFolder + "/**/*.php", "!" + sourceFolder + "/**/_*.php"],
         css: sourceFolder + "/scss/style.scss",
         js: sourceFolder + "/js/script.js",
         img: sourceFolder + "/img/**/*.+(png|jpg|gif|ico|svg|webp)",
@@ -20,6 +22,7 @@ let path = {
     },
     watch: {
         html: sourceFolder + "/**/**/*.html",
+        php: sourceFolder + "/**/**/*.php",
         css: sourceFolder + "/scss/**/*.scss",
         js: sourceFolder + "/js/**/*.js",
         img: sourceFolder + "/img/**/*.+(png|jpg|gif|ico|svg|webp)"
@@ -29,6 +32,7 @@ let path = {
 
 let { src, dest } = require("gulp"),
     gulp = require("gulp"),
+    php = require('gulp-connect-php'),
     browsersync = require("browser-sync").create(),
     fileInclude = require("gulp-file-include"),
     del = require("del"),
@@ -48,21 +52,54 @@ let { src, dest } = require("gulp"),
     fonter = require('gulp-fonter');
 
 
-function browserSync(params) {
-    browsersync.init({
-        server: {
-            baseDir: "./" + projectFolder + "/"
-        },
-        port: 3000,
+gulp.task('php', function () {
+    php.server({ base: './', port: 8010, keepalive: true });
+});
+
+gulp.task('browserSync', ['php'], function () {
+    browserSync.init({
+        proxy: "localhost:8010",
+        baseDir: "./",
+        open: true,
         notify: false
-    })
-}
+
+    });
+});
+
+gulp.task('dev', ['browserSync'], function () {
+    gulp.watch('./*.php', browserSync.reload);
+});
+
+// For work with c HTML files 
+
+// function browserSync(params) {
+//     browsersync.init({
+//         server: {
+//             baseDir: "./" + projectFolder + "/"
+//         },
+//         port: 3000,
+//         notify: false
+
+//     });
+// }
+
+
+
+
 
 function html() {
     return src(path.src.html)
         .pipe(fileInclude())
         .pipe(webphtml())
         .pipe(dest(path.build.html))
+        .pipe(browsersync.stream())
+}
+
+function php() {
+    return src(path.src.php)
+        .pipe(fileInclude())
+        .pipe(webphtml())
+        .pipe(dest(path.build.php))
         .pipe(browsersync.stream())
 }
 
@@ -203,6 +240,7 @@ function callback() {
 
 function watchFiles(params) {
     gulp.watch([path.watch.html], html);
+    gulp.watch([path.watch.php], php);
     gulp.watch([path.watch.css], css);
     gulp.watch([path.watch.js], js);
     gulp.watch([path.watch.img], images);
@@ -212,7 +250,8 @@ function clean(params) {
     return del(path.clean);
 }
 
-let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts), fontsStyle);
+let build = gulp.series(clean, gulp.parallel(js, css, php, html, images, fonts), fontsStyle);
+// add html up
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.fontsStyle = fontsStyle;
@@ -221,6 +260,7 @@ exports.images = images;
 exports.js = js;
 exports.css = css;
 exports.html = html;
+exports.php = php;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;

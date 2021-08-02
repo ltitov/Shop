@@ -1,0 +1,43 @@
+.social {
+  margin-top: auto;
+
+  &__container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &__list {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 22px;
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--color-nevada);
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: var(--color-carnation);
+    }
+  }
+
+  .copyright {
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--color-nevada);
+  }
+}
