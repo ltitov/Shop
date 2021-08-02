@@ -6,7 +6,7 @@ let fs = require('fs');
 let path = {
     build: {
         html: projectFolder + "/",
-        php: projectFolder + "/",
+        // php: projectFolder + "/",
         css: projectFolder + "/css/",
         js: projectFolder + "/js/",
         img: projectFolder + "/img/",
@@ -14,7 +14,7 @@ let path = {
     },
     src: {
         html: [sourceFolder + "/**/*.html", "!" + sourceFolder + "/**/_*.html"],
-        php: [sourceFolder + "/**/*.php", "!" + sourceFolder + "/**/_*.php"],
+        // php: [sourceFolder + "/**/*.php", "!" + sourceFolder + "/**/_*.php"],
         css: sourceFolder + "/scss/style.scss",
         js: sourceFolder + "/js/script.js",
         img: sourceFolder + "/img/**/*.+(png|jpg|gif|ico|svg|webp)",
@@ -22,7 +22,7 @@ let path = {
     },
     watch: {
         html: sourceFolder + "/**/**/*.html",
-        php: sourceFolder + "/**/**/*.php",
+        // php: sourceFolder + "/**/**/*.php",
         css: sourceFolder + "/scss/**/*.scss",
         js: sourceFolder + "/js/**/*.js",
         img: sourceFolder + "/img/**/*.+(png|jpg|gif|ico|svg|webp)"
@@ -32,7 +32,6 @@ let path = {
 
 let { src, dest } = require("gulp"),
     gulp = require("gulp"),
-    php = require('gulp-connect-php'),
     browsersync = require("browser-sync").create(),
     fileInclude = require("gulp-file-include"),
     del = require("del"),
@@ -52,39 +51,19 @@ let { src, dest } = require("gulp"),
     fonter = require('gulp-fonter');
 
 
-gulp.task('php', function () {
-    php.server({ base: './', port: 8010, keepalive: true });
-});
 
-gulp.task('browserSync', ['php'], function () {
-    browserSync.init({
-        proxy: "localhost:8010",
-        baseDir: "./",
-        open: true,
+
+function browserSync(params) {
+    browsersync.init({
+        // proxy: "shop.dev",
+        server: {
+            baseDir: "./" + projectFolder + "/"
+        },
+        port: 3000,
         notify: false
 
     });
-});
-
-gulp.task('dev', ['browserSync'], function () {
-    gulp.watch('./*.php', browserSync.reload);
-});
-
-// For work with c HTML files 
-
-// function browserSync(params) {
-//     browsersync.init({
-//         server: {
-//             baseDir: "./" + projectFolder + "/"
-//         },
-//         port: 3000,
-//         notify: false
-
-//     });
-// }
-
-
-
+}
 
 
 function html() {
@@ -95,13 +74,13 @@ function html() {
         .pipe(browsersync.stream())
 }
 
-function php() {
-    return src(path.src.php)
-        .pipe(fileInclude())
-        .pipe(webphtml())
-        .pipe(dest(path.build.php))
-        .pipe(browsersync.stream())
-}
+// function php() {
+//     return src(path.src.php)
+//         .pipe(fileInclude())
+//         .pipe(webphtml())
+//         .pipe(dest(path.build.php))
+//         .pipe(browsersync.stream())
+// }
 
 function css() {
     return src(path.src.css)
@@ -192,28 +171,6 @@ function fonts(params) {
 
 }
 
-gulp.task('otf', function () {
-    return src(sourceFolder + '/fonts/*.otf')
-        .pipe(fonter({
-            formats: ['ttf']
-        }))
-        .pipe(gulp.dest(sourceFolder + '/fonts/'));
-})
-
-
-gulp.task('svg', function () {
-    return gulp.src([sourceFolder + "/img/iconsprite/*.svg"])
-        .pipe(svgSprite({
-            mode: {
-                stack: {
-                    sprite: "../icons/icons.svg", //sprite file name
-                    // example: true
-                }
-            },
-        }))
-        .pipe(dest(path.build.img))
-})
-
 function fontsStyle(params) {
 
     let file_content = fs.readFileSync(sourceFolder + '/scss/fonts.scss');
@@ -240,7 +197,7 @@ function callback() {
 
 function watchFiles(params) {
     gulp.watch([path.watch.html], html);
-    gulp.watch([path.watch.php], php);
+    // gulp.watch([path.watch.php], php);
     gulp.watch([path.watch.css], css);
     gulp.watch([path.watch.js], js);
     gulp.watch([path.watch.img], images);
@@ -250,7 +207,28 @@ function clean(params) {
     return del(path.clean);
 }
 
-let build = gulp.series(clean, gulp.parallel(js, css, php, html, images, fonts), fontsStyle);
+gulp.task('otf', function () {
+    return src(sourceFolder + '/fonts/*.otf')
+        .pipe(fonter({
+            formats: ['ttf']
+        }))
+        .pipe(gulp.dest(sourceFolder + '/fonts/'));
+})
+
+gulp.task('svg', function () {
+    return gulp.src([sourceFolder + "/img/iconsprite/*.svg"])
+        .pipe(svgSprite({
+            mode: {
+                stack: {
+                    sprite: "../icons/icons.svg", //sprite file name
+                    // example: true
+                }
+            },
+        }))
+        .pipe(dest(path.build.img))
+})
+
+let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts), fontsStyle);
 // add html up
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
@@ -260,7 +238,7 @@ exports.images = images;
 exports.js = js;
 exports.css = css;
 exports.html = html;
-exports.php = php;
+// exports.php = php;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;

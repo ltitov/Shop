@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--color-shark4);
+  background-color: $color-shark4;
   padding: 42px 38px 62px;
   height: 100%;
 
@@ -17,10 +17,10 @@
     display: block;
     margin-bottom: 35px;
     font: 700 30px / 36px "Inter";
-    color: var(--color-white);
+    color: $color-white;
 
     span {
-      color: var(--color-carnation);
+      color: $color-carnation;
     }
   }
 
@@ -29,7 +29,7 @@
     width: 50px;
     height: 50px;
     border-radius: 15px;
-    border: 1px solid var(--color-shark);
+    border: 1px solid $color-shark;
   }
 
   &__avatar {

@@ -9,7 +9,7 @@
       font: 500 18px / 22px "Inter";
       transform: translateY(-50%);
       cursor: pointer;
-      color: var(--color-white);
+      color: $color-white;
 
 
       li {
@@ -18,7 +18,7 @@
 
         &.active,
         &:hover {
-          color: var(--color-carnation);
+          color: $color-carnation;
         }
 
         &:not(:last-child) {
@@ -49,7 +49,7 @@
       left: 0;
       width: 30px;
       height: 1px;
-      background-color: var(--color-white);
+      background-color: $color-white;
     }
 
   }
@@ -58,7 +58,7 @@
     display: flex;
     align-items: center;
     font: 500 12px / 15px "Inter";
-    color: var(--color-nevada);
+    color: $color-nevada;
     text-transform: uppercase;
 
     &:not(:last-child) {
@@ -103,7 +103,7 @@
         max-width: 419px;
         font: 200 72px / 87px "Inter";
         text-align: center;
-        color: var(--color-white);
+        color: $color-white;
       }
 
       &__descr {
@@ -111,16 +111,16 @@
         max-width: 382px;
         font: 400 16px / 22px "Inter";
         text-align: center;
-        color: var(--color-nevada);
+        color: $color-nevada;
       }
 
       &__link {
         padding: 18px 32px;
         font: 600 16px / 19px "Inter";
         border-radius: 20px;
-        border: 1px solid var(--color-shark);
+        border: 1px solid $color-shark;
         text-align: center;
-        color: var(--color-white);
+        color: $color-white;
       }
     }
   }
@@ -156,13 +156,13 @@
         margin-bottom: 12px;
         max-width: 176px;
         font: 500 24px / 29px "Inter";
-        color: var(--color-white);
+        color: $color-white;
       }
 
       &__descr {
         margin: 0;
         font: 400 16px / 19px "Inter";
-        color: var(--color-nevada);
+        color: $color-nevada;
       }
     }
   }

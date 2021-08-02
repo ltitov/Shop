@@ -27,17 +27,17 @@
   &__link {
     font-size: 14px;
     line-height: 16px;
-    color: var(--color-nevada);
+    color: $color-nevada;
     transition: color 0.3s ease-in-out;
 
     &:hover {
-      color: var(--color-carnation);
+      color: $color-carnation;
     }
   }
 
   .copyright {
     font-size: 14px;
     line-height: 17px;
-    color: var(--color-nevada);
+    color: $color-nevada;
   }
 }

@@ -1,12 +1,12 @@
 @import "vendor";
 @import "mixins";
 @import "fonts";
-@import "global";
 @import "vars";
+@import "global";
 
 // @import "components/header";
-@import "components/header";
-@import "components/nav";
-@import "components/search";
-@import "components/social";
-@import "components/content";
+@import "./components/header";
+@import "./components/nav";
+@import "./components/search";
+@import "./components/social";
+@import "./components/content";

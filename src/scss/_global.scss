@@ -54,14 +54,12 @@ a {
 
     &.active {
       display: block;
-      color: var(--color-carnation);
+      color: $color-carnation;
     }
   }
 
   &__caption {
     transition: color 0.3s ease-in-out;
-
-
   }
 }
 
@@ -69,7 +67,7 @@ a {
   display: flex;
   flex-direction: row;
   height: 100vh;
-  background-color: var(--color-shark4);
+  background-color: $color-shark4;
 }
 
 .main {
@@ -78,7 +76,7 @@ a {
   flex-grow: 1;
   padding: 50px 80px 60px 90px;
   border-radius: 40px 0 0 40px;
-  background-color: var(--color-shark3);
+  background-color: $color-shark3;
 }
 
 .container {
