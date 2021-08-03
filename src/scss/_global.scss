@@ -37,6 +37,13 @@ a {
   outline: none;
 }
 
+.btn {
+  color: $color-nevada;
+  border-radius: 15px;
+  border: 1px solid $color-shark;
+  background-color: $color-shark4;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
