@@ -1,0 +1,18 @@
+.nav-search {
+  &__list {
+    column-count: 2;
+  }
+
+  &__item {
+    margin-right: 49px;
+    margin-bottom: 13px;
+    font: 400 16px / 19px "Inter";
+    color: $color-white;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-carnation;
+    }
+  }
+}

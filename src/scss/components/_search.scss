@@ -1,12 +1,20 @@
 .search {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 
   &__container {
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__title {
+    margin: 0;
+    margin-right: 56px;
+    font: 600 36px / 44px "Inter";
+    color: $color-white;
   }
 
   &__form {
+    margin-left: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
