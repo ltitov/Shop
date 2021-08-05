@@ -1,3 +1,14 @@
 .catalog {
   margin-top: 50px;
+
+  &__content {
+    display: flex;
+    align-items: center;
+  }
+
+  &__product {
+    &:not(:last-child) {
+      margin-right: 150px;
+    }
+  }
 }

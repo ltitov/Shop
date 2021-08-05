@@ -28,4 +28,28 @@ $("ul.tabs__caption").on("click", "li:not(.active)", function () {
         .eq($(this).index())
         .addClass("active");
 });
-  // конец скрипт табов //
+// конец скрипт табов //
+
+const oneSwiper = new Swiper('.js__one-slider > .swiper-container', {
+    cssMode: true,
+    loop: true,
+    slidesPerView: 3,
+    spaceBetween: 30,
+    slidesPerGroup: 1,
+    keyboard: true,
+    mousewheel: true,
+    navigation: {
+        prevEl: '.js__one-slider > .swiper-button-prev',
+        nextEl: '.js__one-slider > .swiper-button-next',
+    },
+});
+
+const twoSwiper = new Swiper('.product > .swiper-container', {
+    // Optional parameters
+    // direction: 'horizontal',
+    loop: true,
+    pagination: {
+        el: '.swiper-pagination',
+    },
+});
+
