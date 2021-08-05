@@ -42,6 +42,7 @@ a {
   border-radius: 15px;
   border: 1px solid $color-shark;
   background-color: $color-shark4;
+  transition: all 0.3s ease-in-out;
 }
 
 .visually-hidden {

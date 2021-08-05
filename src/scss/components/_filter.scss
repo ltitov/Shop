@@ -27,30 +27,23 @@
     padding: 13px 15px;
     min-width: 105px;
     font: 400 14px / 17px "Inter";
-    transition: border 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+      color 0.3s ease-in-out;
 
     &:not(:last-child) {
       margin-right: 13px;
     }
 
     &:hover {
-      border: none;
+      color: $color-white;
+      border-color: $color-shark4;
       box-shadow: 0.907px 12.968px 35px rgba(0, 0, 0, 0.212);
     }
-
 
     svg {
       margin-left: 20px;
       max-width: 17px;
-      //   width: 100%;
       height: 17px;
     }
-  }
-
-  &__menu {
-    use {
-      color: $color-shark;
-    }
-
   }
 }
