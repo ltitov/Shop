@@ -119,6 +119,23 @@
         border: 1px solid $color-shark;
         text-align: center;
         color: $color-white;
+        outline: transparent;
+        transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.5s ease-in-out;
+
+        &:focus {
+          color: $color-carnation;
+          border-color: $color-carnation;
+        }
+
+        &:hover {
+          color: $color-black;
+          background-color: $color-white;
+          border-color: $color-black;
+        }
+
+        &:active {
+          color: $color-carnation;
+        }
       }
     }
   }

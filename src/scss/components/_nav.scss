@@ -10,6 +10,7 @@
 
   &__item {
 
+
     &:not(:last-child) {
       margin-bottom: 18px;
     }
@@ -18,6 +19,19 @@
   &__link {
     font: 500 15px / 18px "Inter";
     color: $color-nevada;
+    transition: color 0.3s ease-in-out;
+
+    &:focus {
+      color: $color-carnation;
+    }
+
+    &:hover {
+      color: $color-white;
+    }
+
+    &:active {
+      color: $color-carnation;
+    }
   }
 
   &__btn {
@@ -26,12 +40,27 @@
     width: 30px;
     height: 30px;
 
+    &:hover {
+
+      span,
+      span:before,
+      span::after {
+        background-color: $color-carnation;
+      }
+    }
+
+    span,
+    span:before,
+    span::after {
+      height: 1px;
+      background-color: $color-white;
+      transition: background-color 0.3s ease-in-out;
+    }
+
     span {
       position: relative;
       display: block;
       width: 24px;
-      height: 1px;
-      background-color: $color-white;
 
       &::before {
         content: "";
@@ -39,8 +68,6 @@
         left: 0;
         position: absolute;
         width: 30px;
-        height: 1px;
-        background-color: $color-white;
       }
 
       &::after {
@@ -49,8 +76,6 @@
         left: 0;
         position: absolute;
         width: 30px;
-        height: 1px;
-        background-color: $color-white;
       }
     }
   }

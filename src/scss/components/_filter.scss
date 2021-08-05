@@ -46,4 +46,11 @@
       height: 17px;
     }
   }
+
+  &__menu {
+    use {
+      color: $color-shark;
+    }
+
+  }
 }

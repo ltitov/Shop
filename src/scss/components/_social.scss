@@ -28,10 +28,19 @@
     font-size: 14px;
     line-height: 16px;
     color: $color-nevada;
+    outline: transparent;
     transition: color 0.3s ease-in-out;
+
+    &:focus {
+      color: $color-carnation;
+    }
 
     &:hover {
       color: $color-carnation;
+    }
+
+    &:active {
+      color: $color-white;
     }
   }
 
