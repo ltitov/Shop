@@ -30,10 +30,6 @@
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
       color 0.3s ease-in-out;
 
-    &:not(:last-child) {
-      margin-right: 13px;
-    }
-
     &:hover {
       color: $color-white;
       border-color: $color-shark4;
@@ -44,6 +40,47 @@
       margin-left: 20px;
       max-width: 17px;
       height: 17px;
+    }
+  }
+
+  &__sort-wrapper {
+    position: relative;
+    margin-right: 13px;
+  }
+
+  .sort {
+    &:focus {
+      ~ul {
+        display: block;
+      }
+    }
+
+    &:active {
+      color: $color-carnation;
+    }
+
+    &__list {
+      position: absolute;
+      top: 100%;
+      left: -5px;
+      display: none;
+      padding: 10px;
+      width: 115%;
+    }
+
+    &__item {
+      padding: 3px 0;
+      font: 400 15px / 18px "Inter";
+      cursor: pointer;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: $color-carnation;
+      }
+
+      &:active {
+        color: $color-white;
+      }
     }
   }
 }
