@@ -30,26 +30,27 @@ $("ul.tabs__caption").on("click", "li:not(.active)", function () {
 });
 // конец скрипт табов //
 
-const oneSwiper = new Swiper('.js__one-slider > .swiper-container', {
+const oneSwiper = new Swiper('.catalog__content', {
     cssMode: true,
-    loop: true,
+    loop: false,
     slidesPerView: 3,
     spaceBetween: 30,
     slidesPerGroup: 1,
-    keyboard: true,
-    mousewheel: true,
+    // keyboard: true,
+    // mousewheel: true,
     navigation: {
-        prevEl: '.js__one-slider > .swiper-button-prev',
-        nextEl: '.js__one-slider > .swiper-button-next',
+        prevEl: '.catalog__control > .swiper-button-prev',
+        nextEl: '.catalog__control > .swiper-button-next',
     },
 });
 
-const twoSwiper = new Swiper('.product > .swiper-container', {
-    // Optional parameters
-    // direction: 'horizontal',
+const twoSwiper = new Swiper('.catalog__product', {
+    slidesPerView: 1,
+    spaceBetween: 0,
     loop: true,
+    clickable: true,
     pagination: {
-        el: '.swiper-pagination',
+        el: '.catalog__product > .swiper-pagination',
     },
 });
 
