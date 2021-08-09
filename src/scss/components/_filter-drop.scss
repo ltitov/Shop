@@ -1,0 +1,27 @@
+.filter-drop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  max-width: 500px;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 100vw;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background-color: rgba(26, 29, 32, 0.8);
+    z-index: -1;
+  }
+
+  &__wrapper {
+    height: 100%;
+    padding: 56px 58px 60px 60px;
+    background: red;
+    border-radius: 40px 0 0 40px;
+  }
+}

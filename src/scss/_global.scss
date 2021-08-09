@@ -80,12 +80,14 @@ a {
 }
 
 .main {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   padding: 50px 80px 60px 90px;
   border-radius: 40px 0 0 40px;
   background-color: $color-shark3;
+  z-index: 15;
 }
 
 .container {
