@@ -1,0 +1,19 @@
+.custom-select {
+  &__form {
+    select {
+      width: 380px;
+      padding: 13px 20px;
+      font: 400 14px /17px "Inter";
+      border-radius: 15px;
+      border: 1px solid #25292c;
+      background-color: #1a1d20;
+      color: $color-nevada;
+      appearance: none;
+      background-image: url(../../img/iconsprite/arrow-down.svg);
+      background-repeat: no-repeat;
+      background-size: 10px 6px;
+      background-position: center right 20px;
+      outline: transparent;
+    }
+  }
+}
