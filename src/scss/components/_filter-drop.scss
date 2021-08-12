@@ -48,6 +48,7 @@
 
     label {
       position: relative;
+      cursor: pointer;
 
       &:not(:last-child) {
         margin-right: 34px;
@@ -81,6 +82,7 @@
 
       &:checked+label {
         &::after {
+          transition: all 0.3s ease-out;
           background-color: #f76c68;
         }
       }
@@ -88,6 +90,11 @@
   }
 
   &__category {
+    margin-bottom: 16px;
+    font: 500 15px / 18px "Inter";
+  }
+
+  &__subtitle {
     margin-bottom: 16px;
     font: 500 15px / 18px "Inter";
   }

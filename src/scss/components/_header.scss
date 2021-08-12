@@ -7,10 +7,20 @@
   padding: 42px 38px 62px;
   height: 100%;
 
+  @include r($md) {
+    flex-direction: row;
+    padding: 28px 20px;
+  }
+
   &__top {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include r($md) {
+      flex-direction: row;
+      width: 100%;
+    }
   }
 
   &__logo {
@@ -18,6 +28,10 @@
     margin-bottom: 35px;
     font: 700 30px / 36px "Inter";
     color: $color-white;
+
+    @include r($md) {
+      margin-bottom: 0;
+    }
 
     span {
       color: $color-carnation;
@@ -30,6 +44,14 @@
     height: 50px;
     border-radius: 15px;
     border: 1px solid $color-shark;
+
+    @include r($md) {
+      max-width: 45px;
+      width: 100%;
+      height: 45px;
+      margin-left: auto;
+      margin-right: 20px;
+    }
   }
 
   &__cart {

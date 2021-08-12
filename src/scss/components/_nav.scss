@@ -1,4 +1,7 @@
 .nav {
+  @include r($md) {
+    order: 1;
+  }
 
   &__list {
     margin-bottom: 50px;
@@ -6,6 +9,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @include r($md) {
+      order: 1;
+      margin-bottom: 0;
+    }
+
   }
 
   &__item {
@@ -13,6 +22,10 @@
 
     &:not(:last-child) {
       margin-bottom: 18px;
+
+      @include r($md) {
+        display: none;
+      }
     }
   }
 

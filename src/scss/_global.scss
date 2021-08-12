@@ -69,6 +69,10 @@ a {
 
   &__caption {
     transition: color 0.3s ease-in-out;
+
+    @include r($md) {
+      display: none;
+    }
   }
 }
 
@@ -77,6 +81,10 @@ a {
   flex-direction: row;
   height: 100vh;
   background-color: $color-shark4;
+
+  @include r($md) {
+    flex-direction: column;
+  }
 }
 
 .main {
@@ -88,6 +96,11 @@ a {
   border-radius: 40px 0 0 40px;
   background-color: $color-shark3;
   z-index: 15;
+
+  @include r($md) {
+    padding: 50px 25px 40px;
+    border-radius: 0;
+  }
 }
 
 .container {

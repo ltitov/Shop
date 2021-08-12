@@ -1,6 +1,10 @@
 .search {
   margin-bottom: 25px;
 
+  @include r($md) {
+    display: none;
+  }
+
   &__container {
     display: flex;
     align-items: center;

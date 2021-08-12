@@ -6,7 +6,6 @@ let fs = require('fs');
 let path = {
     build: {
         html: projectFolder + "/",
-        // php: projectFolder + "/",
         css: projectFolder + "/css/",
         js: projectFolder + "/js/",
         img: projectFolder + "/img/",
@@ -14,7 +13,6 @@ let path = {
     },
     src: {
         html: [sourceFolder + "/**/*.html", "!" + sourceFolder + "/**/_*.html"],
-        // php: [sourceFolder + "/**/*.php", "!" + sourceFolder + "/**/_*.php"],
         css: sourceFolder + "/scss/style.scss",
         js: sourceFolder + "/js/script.js",
         img: sourceFolder + "/img/**/*.+(png|jpg|gif|ico|svg|webp)",
@@ -22,7 +20,6 @@ let path = {
     },
     watch: {
         html: sourceFolder + "/**/**/*.html",
-        // php: sourceFolder + "/**/**/*.php",
         css: sourceFolder + "/scss/**/*.scss",
         js: sourceFolder + "/js/**/*.js",
         img: sourceFolder + "/img/**/*.+(png|jpg|gif|ico|svg|webp)"
@@ -55,7 +52,6 @@ let { src, dest } = require("gulp"),
 
 function browserSync(params) {
     browsersync.init({
-        // proxy: "shop.dev",
         server: {
             baseDir: "./" + projectFolder + "/"
         },
@@ -73,14 +69,6 @@ function html() {
         .pipe(dest(path.build.html))
         .pipe(browsersync.stream())
 }
-
-// function php() {
-//     return src(path.src.php)
-//         .pipe(fileInclude())
-//         .pipe(webphtml())
-//         .pipe(dest(path.build.php))
-//         .pipe(browsersync.stream())
-// }
 
 function css() {
     return src(path.src.css)
@@ -197,7 +185,6 @@ function callback() {
 
 function watchFiles(params) {
     gulp.watch([path.watch.html], html);
-    // gulp.watch([path.watch.php], php);
     gulp.watch([path.watch.css], css);
     gulp.watch([path.watch.js], js);
     gulp.watch([path.watch.img], images);
@@ -228,8 +215,8 @@ gulp.task('svg', function () {
         .pipe(dest(path.build.img))
 })
 
+// let build = gulp.series(clean, gulp.parallel(js, css, html, images));
 let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts), fontsStyle);
-// add html up
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.fontsStyle = fontsStyle;
@@ -238,7 +225,6 @@ exports.images = images;
 exports.js = js;
 exports.css = css;
 exports.html = html;
-// exports.php = php;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;
