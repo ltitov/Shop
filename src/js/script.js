@@ -1,5 +1,7 @@
 // Webp image code
 
+// const { on } = require("gulp");
+
 function testWebP(callback) {
     var webP = new Image();
     webP.onload = webP.onerror = function () {
@@ -53,4 +55,28 @@ const twoSwiper = new Swiper('.catalog__product', {
         el: '.catalog__product > .swiper-pagination',
     },
 });
+
+// Ion ranges slider 
+
+$(".js-range-slider").ionRangeSlider({
+    type: "double",
+    min: 0,
+    max: 1000,
+    from: 0,
+    to: 300,
+    prefix: "$"
+});
+
+// Filter drop close 
+
+$('.filter-menu').on('click', function () {
+    $('.filter-drop').show();
+});
+
+$('.filter-drop__btn').on('click', function () {
+    $('.filter-drop').hide();
+});
+
+
+
 

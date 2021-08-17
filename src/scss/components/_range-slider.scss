@@ -1,0 +1,55 @@
+.range-slider {
+  margin-bottom: 30px;
+}
+
+.irs--flat .irs-line {
+  top: 5px;
+  height: 4px;
+  background-color: #25292c;
+  border-radius: 2px;
+}
+
+.irs--flat .irs-bar {
+  top: 5px;
+  height: 4px;
+  background-color: linear-gradient(51.55deg, #FC836A 4.56%, #FA7869 43.64%, #F76C68 95.44%);
+  ;
+}
+
+.irs--flat .irs-max,
+.irs--flat .irs-min {
+  top: 25px;
+  font: 500 14px / 17px "Inter";
+  color: #656B72;
+  background-color: transparent;
+}
+
+.irs--flat .irs-handle>i:first-child {
+  display: none;
+}
+
+.irs--flat .irs-handle {
+  top: 0;
+  width: 10px;
+  height: 14px;
+  border: 2px solid #f76c68;
+  border-radius: 5px;
+  background-color: #1a1d20;
+}
+
+.irs--flat .irs-bar {
+  background-color: #f76c68;
+}
+
+.irs--flat .irs-from,
+.irs--flat .irs-to {
+  top: 25px;
+  font: 500 14px / 17px "Inter";
+  color: #656B72;
+  background-color: transparent;
+}
+
+.irs--flat .irs-from:before,
+.irs--flat .irs-to:before {
+  display: none;
+}
