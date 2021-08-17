@@ -69,10 +69,6 @@ a {
 
   &__caption {
     transition: color 0.3s ease-in-out;
-
-    @include r($md) {
-      display: none;
-    }
   }
 }
 
